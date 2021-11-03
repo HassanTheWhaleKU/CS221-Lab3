@@ -23,10 +23,25 @@ int pack(char a,char b,char c,char d)
 	return p;
 }
 
+//post-lab function
+void unpack (int p, char *a, char *b, char *c, char *d)
+{
+	*d = p;
+	*c = (p >> 8);
+	*b = (p >> 16);
+	*a = (p >> 24);
+}
+
 int main()
 {
 	//Please note, tha sample bellow were asked to do.
 	printf ("abcd = ");
-	bit_print(pack('a','b','c','d'));
-	putchar('\n');	
+	int p = pack('a','b','c','d');
+	bit_print(p);
+	putchar('\n');
+	
+	//post lab
+	char x,y,z,j;
+	unpack(p, &x, &y, &z, &j);
+	printf("unpack: %c %c %c %c\n", x,y,z,j);
 }
